@@ -11,7 +11,28 @@ app.use(express.static('dist'));
 
 app.post('/api', async (req, res) => {
   const { text } = req.body;
-  // اجعل الطلب إلى API هنا باستخدام axios
+
+  if (!text) {
+    return res.status(400).json({ error: 'Text is required' });
+  }
+
+  try {
+    const apiKey = process.env.API_KEY;
+    const apiUrl = `https://api.meaningcloud.com/sentiment-2.1?key=${apiKey}&txt=${encodeURIComponent(
+      text
+    )}&lang=en`;
+
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+
+    res.status(200).json({
+      polarity: data.score_tag,
+      subjectivity: data.subjectivity,
+      text,
+    });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to process request' });
+  }
 });
 
 const PORT = 8081;
