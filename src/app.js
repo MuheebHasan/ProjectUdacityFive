@@ -1,4 +1,4 @@
-import './styles.css';
+import './style/styles.css';
 
 document.getElementById('article-form').addEventListener('submit', (e) => {
   e.preventDefault();
