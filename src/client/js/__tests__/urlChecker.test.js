@@ -1,11 +1,11 @@
-import { checkURL } from '../urlChecker';
+import { checkUrl } from '../urlChecker';
 
-describe('checkURL function tests', () => {
-  test('should return true for a valid URL', () => {
-    expect(checkURL('https://example.com')).toBe(true);
-  });
+describe('URL Validation', () => {
+    test('should return true for a valid URL', () => {
+        expect(checkUrl('https://www.google.com')).toBe(true);
+    });
 
-  test('should return false for an invalid URL', () => {
-    expect(checkURL('invalid-url')).toBe(false);
-  });
+    test('should return false for an invalid URL', () => {
+        expect(checkUrl('invalid-url')).toBe(false);
+    });
 });
