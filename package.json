@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "يتيح هذا المشروع إنشاء شريط تنقل ديناميكي يظهر روابط للأقسام تلقائيًا بناءً على المحتوى. يتضمن أيضًا تنسيقًا يستجيب للأجهزة المختلفة، بحيث يتكيف التصميم مع شاشات الهواتف والأجهزة اللوحية.",
   "main": "app.js",
+  
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
+  "test": "jest",
+  "start": "node server.js",
+  "build-dev": "webpack serve --config webpack.dev.js --open",
+  "build-prod": "webpack --config webpack.prod.js"
+},
   "author": "",
   "license": "ISC",
   "keywords": [],

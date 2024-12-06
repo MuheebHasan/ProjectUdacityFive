@@ -1,13 +1,16 @@
-export const handleSubmit = async (event) => {
+async function handleSubmit(event) {
     event.preventDefault();
-    const url = document.getElementById('url').value;
-    if (checkURL(url)) {
-        await fetch('http://localhost:8081/test', {
-            method: 'POST',
-            body: JSON.stringify({ url }),
-            headers: { 'Content-Type': 'application/json' },
-        });
-    } else {
-        alert('Invalid URL');
-    }
-};
+    
+    const formText = document.getElementById('name').value;
+    const response = await fetch('http://localhost:8080/analyze', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: formText }),
+    });
+    
+    const data = await response.json();
+    document.getElementById('results').innerHTML = `Polarity: ${data.polarity}, Subjectivity: ${data.subjectivity}`;
+  }
+  
+  export { handleSubmit };
+  

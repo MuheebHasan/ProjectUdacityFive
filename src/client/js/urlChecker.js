@@ -1,4 +1,7 @@
-export const checkURL = (url) => {
-    const regex = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/;
-    return regex.test(url);
-};
+function checkURL(inputText) {
+    const urlRegex = new RegExp(/^(ftp|http|https):\/\/[^ "]+$/);
+    return urlRegex.test(inputText);
+  }
+  
+  export { checkURL };
+  
