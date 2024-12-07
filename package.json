@@ -1,18 +1,16 @@
 {
   "name": "udacitysecondproject",
   "version": "1.0.0",
-  "description": "يتيح هذا المشروع إنشاء شريط تنقل ديناميكي يظهر روابط للأقسام تلقائيًا بناءً على المحتوى. يتضمن أيضًا تنسيقًا يستجيب للأجهزة المختلفة، بحيث يتكيف التصميم مع شاشات الهواتف والأجهزة اللوحية.",
+  "description": "This project creates a dynamic navigation bar and provides responsive design for all devices.",
   "main": "app.js",
-  
   "scripts": {
-  "test": "jest",
-  "start": "node server.js",
-  "build-dev": "webpack serve --config webpack.dev.js --open",
-  "build-prod": "webpack --config webpack.prod.js"
-},
+    "test": "jest",
+    "start": "node server/index.js",
+    "build-prod": "webpack --config webpack.prod.js",
+    "build-dev": "webpack serve --config webpack.dev.js --open"
+  },
   "author": "",
   "license": "ISC",
-  "keywords": [],
   "devDependencies": {
     "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.6.3",
