@@ -1,13 +1,25 @@
 # UdacitySecondProject
-# مشروع تنقل ديناميكي واستجابة للأجهزة المختلفة
+# Project Title
 
-## الوصف
-يتيح هذا المشروع إنشاء شريط تنقل ديناميكي يظهر روابط للأقسام تلقائيًا بناءً على المحتوى. يتضمن أيضًا تنسيقًا يستجيب للأجهزة المختلفة، بحيث يتكيف التصميم مع شاشات الهواتف والأجهزة اللوحية.
+## Prerequisites
 
-## الملفات
-- `index.html`: يحتوي على هيكل HTML للأقسام وشريط التنقل.
-- `css/style.css`: يحتوي على التنسيقات الخاصة بالمشروع.
-- `js/main.js`: يحتوي على الأكواد البرمجية اللازمة لتفعيل التنقل الديناميكي ومؤشر القسم الحالي عند التمرير.
+To run this project, you need the following:
 
-## كيفية الاستخدام
-يمكنك فتح الملف `index.html` في متصفحك لرؤية المشروع قيد التشغيل.
+1. **Node.js**: v20.12.2  
+   - Verify your Node.js version with:
+     ```bash
+     node --version
+     ```
+   - Download Node.js LTS version [here](https://nodejs.org/).
+
+2. **npm**: v8.0.0 or later (comes with Node.js).  
+   - Verify npm version with:
+     ```bash
+     npm --version
+     ```
+
+## Setup Instructions
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd <project-folder>
