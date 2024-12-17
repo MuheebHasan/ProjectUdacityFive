@@ -1,25 +1,30 @@
-const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const dotenv = require('dotenv');
-
-// إعداد Dotenv
-dotenv.config();
+require('dotenv').config();
 
 const app = express();
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
-// مسار الثابتات (الملفات المدمجة من Webpack)
-app.use(express.static('dist'));
+const PORT = 8081;
 
-// التعامل مع الطلبات
-app.get('/', (req, res) => {
-  res.sendFile(path.resolve('dist/index.html'));
+// Example route for form submission
+app.post('/api/analyze', (req, res) => {
+    const { text } = req.body;
+    if (!text) {
+        return res.status(400).json({ error: 'No text provided.' });
+    }
+
+    // Mocked API response for testing
+    const response = {
+        polarity: 'positive',
+        subjectivity: 'subjective',
+        text: text,
+    };
+    res.status(200).json(response);
 });
 
-app.listen(8080, () => {
-  console.log('Server is running on port 8080');
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
 });

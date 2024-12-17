@@ -1,35 +1,27 @@
-import { checkUrl } from './urlChecker';
-
-const handleSubmit = async (event) => {
+export const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Get input value
-    const formText = document.getElementById('name').value;
+    const inputText = document.getElementById('inputText').value;
 
-    // Validate input using `checkUrl`
-    if (!checkUrl(formText)) {
-        alert('The URL provided is invalid. Please enter a valid URL.');
-        return; // Stop execution if input is invalid
+    if (!checkUrl(inputText)) {
+        alert("Invalid URL. Please enter a valid one.");
+        return;
     }
 
-    console.log('::: Form Submitted :::');
-
-    // Call API to analyze the text
-    const response = await fetch('http://localhost:8081/analyze', {
+    const response = await fetch('/api/analyze', {
         method: 'POST',
-        credentials: 'same-origin',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ text: formText }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: inputText }),
     });
 
     try {
         const data = await response.json();
-        document.getElementById('results').innerHTML = data.message;
+        document.getElementById('results').innerHTML = `
+            <p><strong>Polarity:</strong> ${data.polarity}</p>
+            <p><strong>Subjectivity:</strong> ${data.subjectivity}</p>
+            <p><strong>Text:</strong> ${data.text}</p>
+        `;
     } catch (error) {
-        console.error('Error:', error);
+        console.error("Error:", error);
     }
 };
-
-export { handleSubmit };
