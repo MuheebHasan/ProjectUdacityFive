@@ -3,18 +3,18 @@ import { checkUrl } from './urlChecker';
 const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // الحصول على قيمة الإدخال
+    // Get input value
     const formText = document.getElementById('name').value;
 
-    // التحقق من صحة الإدخال باستخدام `checkUrl`
+    // Validate input using `checkUrl`
     if (!checkUrl(formText)) {
         alert('The URL provided is invalid. Please enter a valid URL.');
-        return; // إنهاء التنفيذ إذا كان الإدخال غير صالح
+        return; // Stop execution if input is invalid
     }
 
     console.log('::: Form Submitted :::');
 
-    // استدعاء API لمعالجة النص
+    // Call API to analyze the text
     const response = await fetch('http://localhost:8081/analyze', {
         method: 'POST',
         credentials: 'same-origin',
